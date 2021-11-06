@@ -39,37 +39,5 @@
             </div>
         </div>
     </div>
-    <script>
-        function clock(){
-            let time = new Date();
-            let hour = time.getHours();
-            let minute = time.getMinutes();
-            let second = time.getSeconds();
-            let date = time.getDate();
-            let month = time.getMonth();
-            let year = time.getFullYear();
-            let day = time.getDay();
-            let day_name = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-            let month_name = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-            month = month_name[month];
-            day = day_name[day];
-            let am_pm = hour < 12 ? 'AM' : 'PM';
-            hour = hour > 12 ? hour - 12 : hour;
-            hour = hour < 10 ? '0' + hour : hour;
-            minute = minute < 10 ? '0' + minute : minute;
-            second = second < 10 ? '0' + second : second;
-            date = date < 10 ? '0' + date : date;
-            document.getElementsByClassName('hour')[0].innerHTML = hour;
-            document.getElementsByClassName('minute')[0].innerHTML = minute;
-            document.getElementsByClassName('second')[0].innerHTML = second;
-            document.getElementsByClassName('date')[0].innerHTML = date;
-            document.getElementsByClassName('am-pm')[0].innerHTML = am_pm;
-            document.getElementsByClassName('month')[0].innerHTML = month;
-            document.getElementsByClassName('year')[0].innerHTML = year;
-            document.getElementsByClassName('day')[0].innerHTML = day;
-            setTimeout(clock, 1000);
-        }
-        clock();
-    </script>
 </body>
 </html>
