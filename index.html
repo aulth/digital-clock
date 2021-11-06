@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="theme-color" content="#1a2140">
+    <link href='https://i.ibb.co/txTvZGP/clock.jpg' rel='icon' type='image/x-icon'/>
+    <meta name="author" content="Mohd Usman">
+    <meta property="og:title" content="Digital Clock" />
+    <meta property="og:description" content="Wonderful clock made using HTML, CSS, Javascript" />
+    <meta property="og:url" content="http://aulth.github.io/digital-clock" />
+    <meta property="og:image" content="https://i.ibb.co/txTvZGP/clock.jpg" />
+    <script src="https://kit.fontawesome.com/1c2c2462bf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <header><h3>Digital Watch</h3>
+            <div class="github"><i onclick="location.href='https://aulth.github.io/digital-clock'" class="fab fa-github"></i></div>
+        </header>
+        <div class="box">
+            <div class="container">
+            <div class="clock">
+                <div class="hour"></div>
+                <div class="zig">:</div>
+                <div class="minute"></div>
+                <div class="zig">:</div>
+                <div class="second"></div>
+                <div id="am-pm" class="am-pm"></div>
+            </div>
+            <div class="days">
+                <div class="date"></div>
+                <div class="month"></div>
+                <div class="year"></div>
+                <div class="day"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function clock(){
+            let time = new Date();
+            let hour = time.getHours();
+            let minute = time.getMinutes();
+            let second = time.getSeconds();
+            let date = time.getDate();
+            let month = time.getMonth();
+            let year = time.getFullYear();
+            let day = time.getDay();
+            let day_name = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+            let month_name = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            month = month_name[month];
+            day = day_name[day];
+            let am_pm = hour < 12 ? 'AM' : 'PM';
+            hour = hour > 12 ? hour - 12 : hour;
+            hour = hour < 10 ? '0' + hour : hour;
+            minute = minute < 10 ? '0' + minute : minute;
+            second = second < 10 ? '0' + second : second;
+            date = date < 10 ? '0' + date : date;
+            document.getElementsByClassName('hour')[0].innerHTML = hour;
+            document.getElementsByClassName('minute')[0].innerHTML = minute;
+            document.getElementsByClassName('second')[0].innerHTML = second;
+            document.getElementsByClassName('date')[0].innerHTML = date;
+            document.getElementsByClassName('am-pm')[0].innerHTML = am_pm;
+            document.getElementsByClassName('month')[0].innerHTML = month;
+            document.getElementsByClassName('year')[0].innerHTML = year;
+            document.getElementsByClassName('day')[0].innerHTML = day;
+            setTimeout(clock, 1000);
+        }
+        clock();
+    </script>
+</body>
+</html>
